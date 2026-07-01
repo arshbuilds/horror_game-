@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://chyig0ma1ao7t"]
+
+[ext_resource type="Script" uid="uid://ct3gktflo35dk" path="res://assets/scripts/lectern.gd" id="1_1iqlm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hagol"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_13t8q"]
+
+[node name="lectern" type="StaticBody3D" unique_id=1313150072 groups=["interactable"]]
+collision_layer = 3
+script = ExtResource("1_1iqlm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=961692164]
+shape = SubResource("BoxShape3D_hagol")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=745894642]
+mesh = SubResource("BoxMesh_13t8q")

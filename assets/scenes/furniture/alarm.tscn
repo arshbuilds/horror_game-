@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://xrv1h5nnwwo2"]
+
+[ext_resource type="PackedScene" uid="uid://blisapegvbcw4" path="res://assets/models/alarmclock/alarm_clock.glb" id="1_5f6dl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5f6dl"]
+size = Vector3(0.2, 0.24, 0.11)
+
+[node name="Alarm" type="StaticBody3D" unique_id=787566599 groups=["interactable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=853269500]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06, 0.115, 0.02)
+shape = SubResource("BoxShape3D_5f6dl")
+
+[node name="Sketchfab_Scene" parent="." unique_id=287299014 instance=ExtResource("1_5f6dl")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)

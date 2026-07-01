@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://orj5m3xgw1wg"]
+
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://assets/scenes/player.tscn" id="1_bvorw"]
+[ext_resource type="PackedScene" uid="uid://b3tlriwewbwh4" path="res://assets/scenes/SceneDoor.tscn" id="3_bl327"]
+[ext_resource type="PackedScene" uid="uid://bqdxbpk1ibyrb" path="res://assets/scenes/bed.tscn" id="3_khtp1"]
+
+[sub_resource type="Environment" id="Environment_6sblq"]
+background_mode = 2
+background_energy_multiplier = 0.0
+ambient_light_color = Color(0.5673677, 0.56736773, 0.56736773, 1)
+ambient_light_sky_contribution = 0.61
+ambient_light_energy = 1.03
+reflected_light_source = 1
+
+[node name="apartment" type="Node3D" unique_id=1193611476]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=773175596]
+use_collision = true
+
+[node name="floor" type="CSGBox3D" parent="CSGCombiner3D" unique_id=2053788267]
+use_collision = true
+size = Vector3(5, 0.1, 6)
+
+[node name="roof" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1071816199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.904693, 0)
+use_collision = true
+size = Vector3(5, 0.1, 6)
+
+[node name="wall" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1322939625]
+transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, -1, 0, 1, 2.9802322e-08, 0, 1.3621786, 2.992325)
+use_collision = true
+size = Vector3(5, 0.1, 3)
+
+[node name="wall2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1872940240]
+transform = Transform3D(1, 0, 0, 0, 2.9802322e-08, -1, 0, 1, 2.9802322e-08, 0, 1.3621786, -3.0375109)
+use_collision = true
+size = Vector3(5, 0.1, 3)
+
+[node name="wall3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=910530671]
+transform = Transform3D(2.9802322e-08, 1, 2.9802322e-08, 0, 2.9802322e-08, -1, -1, 2.9802322e-08, 8.881784e-16, 2.536393, 1.3621786, -0.022364974)
+use_collision = true
+size = Vector3(6.1243896, 0.1, 3)
+
+[node name="wall4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1336555523]
+transform = Transform3D(2.9802322e-08, 1, 2.9802322e-08, 0, 2.9802322e-08, -1, -1, 2.9802322e-08, 8.881784e-16, -2.5368445, 1.3621786, -0.022364974)
+use_collision = true
+size = Vector3(6.1243896, 0.1, 3)
+
+[node name="Player" parent="." unique_id=506629853 instance=ExtResource("1_bvorw")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, 0.41388226, -2)
+
+[node name="SceneDoor" parent="." unique_id=147277916 instance=ExtResource("3_bl327")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4499016, 0.050001144, 0.55235577)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=105373904]
+environment = SubResource("Environment_6sblq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1035040666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.637013, 0)
+
+[node name="StaticBody3D" parent="." unique_id=740245365 instance=ExtResource("3_khtp1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0256958, 0.3000002, 1.8620467)

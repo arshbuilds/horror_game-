@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
+
+[ext_resource type="Script" uid="uid://b2nxrhu84dg08" path="res://assets/scripts/player.gd" id="1_ucva2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
+albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
+radius = 0.4
+height = 1.8
+
+[node name="Player" type="CharacterBody3D" unique_id=935822374]
+collision_layer = 4
+script = ExtResource("1_ucva2")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=744435861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+material_override = SubResource("StandardMaterial3D_iof21")
+cast_shadow = 0
+mesh = SubResource("CapsuleMesh_ucva2")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=45932759]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_iof21")
+
+[node name="Head" type="Node3D" parent="." unique_id=566848109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head" unique_id=917107864]
+
+[node name="SeeCast" type="RayCast3D" parent="Head/Camera3D" unique_id=730985804]
+unique_name_in_owner = true
+transform = Transform3D(3.5527137e-15, 3.264707e-07, 0.9999997, 1, -1.1970953e-07, 0, 4.371139e-08, 2.7386343, -1.1920926e-07, 0, -0.2584269, 0)
+collision_mask = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2001727379]
+
+[node name="BoxContainer" type="BoxContainer" parent="CanvasLayer" unique_id=1730844751]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/BoxContainer" unique_id=82267008]
+layout_mode = 2
+text = "[E] Interact"

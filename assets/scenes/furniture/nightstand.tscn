@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dpirrs14nmqh8"]
+
+[ext_resource type="PackedScene" uid="uid://bi8y1ygfgsybe" path="res://assets/models/nightstand/nightstand.glb" id="1_b41p7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b41p7"]
+size = Vector3(0.595, 0.645, 0.465)
+
+[node name="nightstand" type="StaticBody3D" unique_id=11164615]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1179329684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.085, 0.2, 0.295)
+shape = SubResource("BoxShape3D_b41p7")
+
+[node name="Sketchfab_Scene" parent="." unique_id=1933752582 instance=ExtResource("1_b41p7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0934749, -0.16049352, 0.45702708)

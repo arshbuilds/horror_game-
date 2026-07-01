@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b2rf8jf8g7quc"]
+
+[ext_resource type="PackedScene" uid="uid://rvoe5kyylooo" path="res://assets/models/wardrobe/wardrobe_low_poly.glb" id="1_8hic7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6i5fr"]
+size = Vector3(1.455, 1.91, 0.6)
+
+[node name="wardrobe" type="StaticBody3D" unique_id=1384056348]
+
+[node name="Sketchfab_Scene" parent="." unique_id=1721084229 instance=ExtResource("1_8hic7")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1300663219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1476902, 0)
+shape = SubResource("BoxShape3D_6i5fr")
