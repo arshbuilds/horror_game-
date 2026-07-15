@@ -61,14 +61,16 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	$CanvasLayer/BoxContainer/Label.hide()
+	
 
 	if %SeeCast.is_colliding():
 		var target = %SeeCast.get_collider()
 		if target == null:
 			return
-		if target.is_in_group("interactable"):
+		if target is Interactable:
 			$CanvasLayer/BoxContainer/Label.show()
-
+			if target.promptText:
+				$CanvasLayer/BoxContainer/Label.text = target.promptText
 			if Input.is_action_just_pressed("Interact"):
 				target.interact()
 

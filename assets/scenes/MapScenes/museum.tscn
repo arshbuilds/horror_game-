@@ -1,11 +1,23 @@
-[gd_scene format=3 uid="uid://d0bj8r865tpe6"]
+[gd_scene format=3 uid="uid://dpdlsyis2q10d"]
 
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://assets/scenes/player.tscn" id="1_kir5i"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://assets/scenes/player.tscn" id="2_tmf58"]
+[ext_resource type="PackedScene" uid="uid://drera4e7a6p1a" path="res://assets/scenes/MapScenes/museum_map.tscn" id="2_wsmyc"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wsmyc"]
+
+[sub_resource type="Environment" id="Environment_wsmyc"]
+ambient_light_energy = 0.0
 
 [node name="Museum" type="Node3D" unique_id=2079525542]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=678925119]
-transform = Transform3D(2.2, 0, 0, 0, 0.099999964, 0, 0, 0, 7.5, 0, 0, 0)
+[node name="museum_map" parent="." unique_id=1680037939 instance=ExtResource("2_wsmyc")]
 
-[node name="Player" parent="." unique_id=935822374 instance=ExtResource("1_kir5i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1129571869]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.875845, 4.5407386, 14.734386)
+mesh = SubResource("BoxMesh_wsmyc")
+
+[node name="Player" parent="." unique_id=935822374 instance=ExtResource("2_tmf58")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.65727, 4.238874, 23.392038)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=623427814]
+environment = SubResource("Environment_wsmyc")

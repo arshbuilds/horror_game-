@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_x222g"]
 size = Vector3(1.4, 0.64, 3.13)
 
-[node name="Bed" type="StaticBody3D" unique_id=740245365 groups=["interactable"]]
+[node name="Bed" type="StaticBody3D" unique_id=740245365]
 
 [node name="Sketchfab_Scene" parent="." unique_id=1590681342 instance=ExtResource("1_byyep")]
 

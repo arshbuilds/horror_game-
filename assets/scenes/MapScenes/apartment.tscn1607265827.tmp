@@ -7,9 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://xrv1h5nnwwo2" path="res://assets/scenes/furniture/alarm.tscn" id="5_kjo40"]
 [ext_resource type="PackedScene" uid="uid://dlebhcqemdk3n" path="res://assets/scenes/furniture/table.tscn" id="6_v5726"]
 [ext_resource type="PackedScene" uid="uid://bv4ycwrs8lkk2" path="res://assets/scenes/furniture/chair.tscn" id="7_e4ltt"]
-[ext_resource type="PackedScene" uid="uid://b2rf8jf8g7quc" path="res://assets/scenes/furniture/wardrobe.tscn" id="8_jubga"]
-[ext_resource type="PackedScene" uid="uid://chyig0ma1ao7t" path="res://assets/scenes/furniture/lectern.tscn" id="9_4xexb"]
-[ext_resource type="Resource" uid="uid://h3jsmqr5j3ug" path="res://assets/dialogues/test.dialogue" id="10_kjo40"]
+[ext_resource type="PackedScene" uid="uid://rvoe5kyylooo" path="res://assets/models/wardrobe/wardrobe_low_poly.glb" id="8_jubga"]
 
 [sub_resource type="Environment" id="Environment_6sblq"]
 background_mode = 2
@@ -59,10 +57,23 @@ operation = 2
 
 [node name="Player" parent="." unique_id=506629853 instance=ExtResource("1_7y1jx")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.0244634, 0.10487139, -0.98953104)
+can_move = null
+has_gravity = null
+can_jump = null
+can_sprint = null
+look_speed = null
+base_speed = null
+jump_velocity = null
+sprint_speed = null
+input_left = null
+input_right = null
+input_forward = null
+input_back = null
+input_jump = null
+input_sprint = null
 
 [node name="SceneDoor" parent="." unique_id=147277916 instance=ExtResource("2_e4ltt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4499016, 0.050001144, 0.55235577)
-promptText = "[E] Open"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=105373904]
 environment = SubResource("Environment_6sblq")
@@ -76,7 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8126004, 0.050000265, -1.09
 [node name="nightstand" parent="." unique_id=11164615 instance=ExtResource("4_4xexb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9321835, 0.21049371, -2.9857466)
 
-[node name="Alarm" parent="." unique_id=787566599 instance=ExtResource("5_kjo40")]
+[node name="Alarm2" parent="." unique_id=787566599 instance=ExtResource("5_kjo40")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.841, 0.764, -2.451)
 
 [node name="Table" parent="." unique_id=1884730393 instance=ExtResource("6_v5726")]
@@ -85,9 +96,5 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.2
 [node name="Chair" parent="." unique_id=571307537 instance=ExtResource("7_e4ltt")]
 transform = Transform3D(0.80815697, 0, 0.8870638, 0, 1.1999999, 0, -0.8870638, 0, 0.80815697, -1.1497929, 0.05000007, 1.8767343)
 
-[node name="wardrobe" parent="." unique_id=1384056348 instance=ExtResource("8_jubga")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.6651673, 0.05000019, 2.5575418)
-
-[node name="lectern" parent="." unique_id=1313150072 instance=ExtResource("9_4xexb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.058481216, 0.5500002, -0.10214055)
-dialogue = ExtResource("10_kjo40")
+[node name="Sketchfab_Scene" parent="." unique_id=1721084229 instance=ExtResource("8_jubga")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.6691048, 0.05000043, 2.4717777)
