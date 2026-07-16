@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://b63kkrscdva2v"]
+
+[ext_resource type="Script" uid="uid://vhr36x5kv3u7" path="res://assets/scenes/furniture/common/OpeningDoor.gd" id="1_3mqx5"]
+[ext_resource type="PackedScene" uid="uid://c20ga1xproawk" path="res://assets/models/door/door.glb" id="1_8rfg4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8rfg4"]
+size = Vector3(0.08870697, 2.3796072, 1.124157)
+
+[sub_resource type="Animation" id="Animation_8rfg4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_irkqw"]
+resource_name = "close"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.6580628, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3mqx5"]
+resource_name = "open"
+length = 0.6666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hinge:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.6580628, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_irkqw"]
+_data = {
+&"RESET": SubResource("Animation_8rfg4"),
+&"close": SubResource("Animation_irkqw"),
+&"open": SubResource("Animation_3mqx5")
+}
+
+[node name="Door" type="Node3D" unique_id=1781799183]
+
+[node name="hinge" type="Node3D" parent="." unique_id=1060689237]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44839174, 0.6100519, 0.804314)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="hinge" unique_id=1928639857 node_paths=PackedStringArray("animationPlayer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.44839174, -0.6100519, -0.804314)
+script = ExtResource("1_3mqx5")
+animationPlayer = NodePath("../../AnimationPlayer")
+promptText = "[E] Open"
+
+[node name="Sketchfab_Scene" parent="hinge/StaticBody3D" unique_id=2110721436 instance=ExtResource("1_8rfg4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4472084, 0.59466136, 0.22553635)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="hinge/StaticBody3D" unique_id=1053103152]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4476509, 0.61687374, 0.22168481)
+shape = SubResource("BoxShape3D_8rfg4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=139278401]
+libraries/ = SubResource("AnimationLibrary_irkqw")

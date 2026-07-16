@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://assets/scenes/player.tscn" id="2_tmf58"]
 [ext_resource type="PackedScene" uid="uid://drera4e7a6p1a" path="res://assets/scenes/MapScenes/museum_map.tscn" id="2_wsmyc"]
+[ext_resource type="PackedScene" uid="uid://b63kkrscdva2v" path="res://assets/scenes/furniture/common/door.tscn" id="3_tmf58"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wsmyc"]
 
 [sub_resource type="Environment" id="Environment_wsmyc"]
-ambient_light_energy = 0.0
 
 [node name="Museum" type="Node3D" unique_id=2079525542]
 
@@ -17,7 +17,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.875845, 4.5407386, 14.7343
 mesh = SubResource("BoxMesh_wsmyc")
 
 [node name="Player" parent="." unique_id=935822374 instance=ExtResource("2_tmf58")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.65727, 4.238874, 23.392038)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.9662113, 0.75080204, -11.162928)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=623427814]
 environment = SubResource("Environment_wsmyc")
+
+[node name="Door" parent="." unique_id=1781799183 instance=ExtResource("3_tmf58")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.099808, 0.17022777, 1.308161)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=2135644496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8470175, 2.6478677, 0)
+omni_range = 10.682
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1016055289]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8470175, 2.6478677, -18.142992)
+omni_range = 10.682
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=221552755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.527988, 2.6478677, -18.142992)
+omni_range = 10.682
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="." unique_id=612413948]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.527988, 2.6478677, -1.3808928)
+omni_range = 10.682
