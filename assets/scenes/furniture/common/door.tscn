@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b63kkrscdva2v"]
 
-[ext_resource type="Script" uid="uid://vhr36x5kv3u7" path="res://assets/scenes/furniture/common/OpeningDoor.gd" id="1_3mqx5"]
+[ext_resource type="Script" uid="uid://vhr36x5kv3u7" path="res://assets/scripts/OpeningDoor.gd" id="1_3mqx5"]
 [ext_resource type="PackedScene" uid="uid://c20ga1xproawk" path="res://assets/models/door/door.glb" id="1_8rfg4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8rfg4"]

@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bua4ntdol3ig7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8s1yr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfl77"]
+albedo_color = Color(0.8534875, 0.85348773, 0.85348743, 1)
+
+[node name="socket" type="CSGCombiner3D" unique_id=2020068404]
+
+[node name="front" type="CSGBox3D" parent="." unique_id=1387830004]
+size = Vector3(0.086, 0.086, 0.01)
+material = SubResource("StandardMaterial3D_8s1yr")
+
+[node name="back" type="CSGBox3D" parent="." unique_id=731822852]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0086123645)
+size = Vector3(0.096, 0.096, 0.01)
+material = SubResource("StandardMaterial3D_wfl77")
+
+[node name="hole1" type="CSGCylinder3D" parent="." unique_id=616300463]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.020225225, 0.017038018, 0.0044232905)
+operation = 2
+radius = 0.009
+height = 0.009
+
+[node name="hole2" type="CSGCylinder3D" parent="." unique_id=682906258]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.023172962, 0.017038018, 0.0051192045)
+operation = 2
+radius = 0.009
+height = 0.009
+
+[node name="hole3" type="CSGCylinder3D" parent="." unique_id=1599265576]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.023172962, -0.021075338, 0.0051192045)
+operation = 2
+radius = 0.009
+height = 0.009
+
+[node name="hole4" type="CSGCylinder3D" parent="." unique_id=147530470]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.020606974, -0.021075338, 0.0051192045)
+operation = 2
+radius = 0.009
+height = 0.009

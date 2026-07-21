@@ -1,4 +1,4 @@
 extends Interactable
 
 func interact():
-	print("Stop alarm")
+	$AudioStreamPlayer3D.stop()

@@ -1,0 +1,54 @@
+[gd_scene format=4 uid="uid://bl0lwi2nh5mwf"]
+
+[ext_resource type="PackedScene" uid="uid://dxrw78tt4wrts" path="res://assets/models/window/window.glb" id="1_8bh2d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qys38"]
+resource_name = "Material.002"
+transparency = 4
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 0.47390622)
+metallic = 0.3885726
+roughness = 0.82111454
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_50ytg"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAACAAEAAwAEAAEABQAAAAIAAwAAAAUABAAGAAIABQACAAYAAwAHAAQAAwAFAAcABwAGAAQABwAFAAYA"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAAAAAAAAAP////8AAAAAAAD//wAAAAD//wAAAAD///////8AAP//AAAAAAAA//8AAP//AAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4te0g"]
+resource_name = "Sketchfab_Scene_Cube_001_Material_002_0"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("6cmq5B/N4Ocfzark6cng5+nJ4OcfzRbrH83g5+nJFuvpyRbrH81N7h/NFuvpyU3u6clN7h/Ng/EfzU3u6cmD8bLGFuvpyU3u6ckW67LGTe4fzRbrVdBN7lXQFusfzU3u"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_qys38"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAAAA/z8AAP//////PwAAAAD///8/AAD//wAA/z8AAP//AACqKv///////6oqAAD/////qir/////AACqKv////8AAAAA//8AAP//AAD///////8AAP//AAAAAAAA//8AAAAAqioAAAAA//+qKv//AAD//6oqAAAAAAAAqioAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAAAAP///////wAAAAAAAP//AAAAAP////8AAP//AAD//wAA/3////9/////f////3///6qqqqqqqqqqqqqqqqqqqqr/v/9//7//f/+//3//v/9/qipU1aoqVNWqKlTVqipU1f///3////9/////f////3//f/9//3//f/9//3//f/9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_50ytg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aliib"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.3529412)
+roughness = 0.15
+
+[node name="Sketchfab_Scene" unique_id=1973711834 instance=ExtResource("1_8bh2d")]
+
+[node name="Cube_001_Material_002_0" parent="Sketchfab_model/e2dfa4c3bee14a97b82958defdd9cdd8_fbx/RootNode/Cube_001" parent_id_path=PackedInt32Array(593721524) index="0" unique_id=1877816660]
+mesh = SubResource("ArrayMesh_4te0g")
+surface_material_override/0 = SubResource("StandardMaterial3D_aliib")

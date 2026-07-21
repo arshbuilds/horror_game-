@@ -1,0 +1,16 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ua7a6gbfst33"]
+
+[ext_resource type="Texture2D" uid="uid://6nhdlsgo3ud6" path="res://assets/textures/homeWall/Plaster005_1K-JPG_Displacement.jpg" id="2_aqa1x"]
+[ext_resource type="Texture2D" uid="uid://dqxj6jncctm6c" path="res://assets/textures/homeWall/Plaster005_1K-JPG_NormalGL.jpg" id="3_p1xs3"]
+[ext_resource type="Texture2D" uid="uid://b1oxhafefds7e" path="res://assets/textures/homeWall/Plaster005_1K-JPG_Roughness.jpg" id="4_hbhay"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1di0h"]
+load_path = "res://.godot/imported/Plaster005_1K-JPG_Color.jpg-9b32aadba0cc3ebf6f6f0bc3abf0c1ca.s3tc.ctex"
+
+[resource]
+albedo_color = Color(0.78860694, 0.78860694, 0.7886069, 1)
+albedo_texture = SubResource("CompressedTexture2D_1di0h")
+roughness_texture = ExtResource("4_hbhay")
+normal_enabled = true
+normal_texture = ExtResource("3_p1xs3")
+heightmap_texture = ExtResource("2_aqa1x")

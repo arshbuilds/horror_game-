@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://b2nxrhu84dg08" path="res://assets/scripts/player.gd" id="1_ucva2"]
+[ext_resource type="AudioStream" uid="uid://bmckgrkfa0raf" path="res://assets/sound/steps/step1.mp3" id="2_60g6h"]
+[ext_resource type="AudioStream" uid="uid://b3xj55xpx8h7n" path="res://assets/sound/steps/step2.mp3" id="3_hrrj1"]
+[ext_resource type="AudioStream" uid="uid://bc7p5oa6plsm4" path="res://assets/sound/steps/step3.mp3" id="4_c6vv5"]
+[ext_resource type="AudioStream" uid="uid://ba2qug6n18w56" path="res://assets/sound/steps/step4.mp3" id="5_nh07x"]
+[ext_resource type="AudioStream" uid="uid://w51qqcydbuom" path="res://assets/sound/steps/step5.mp3" id="6_00pic"]
+[ext_resource type="AudioStream" uid="uid://ct8jutlk8awyj" path="res://assets/sound/steps/step6.mp3" id="7_0bskb"]
+[ext_resource type="AudioStream" uid="uid://briislngqvbfs" path="res://assets/sound/steps/step7.mp3" id="8_1dmvh"]
+[ext_resource type="AudioStream" uid="uid://djqwt5t5vjoyn" path="res://assets/sound/steps/step8.mp3" id="9_ratp2"]
+[ext_resource type="AudioStream" uid="uid://57pa844s1hiq" path="res://assets/sound/steps/step9.mp3" id="10_84enu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -13,9 +22,13 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
-[node name="Player" type="CharacterBody3D" unique_id=935822374]
+[sub_resource type="AudioStream" id="AudioStream_rwm0n"]
+
+[node name="Player" type="CharacterBody3D" unique_id=935822374 node_paths=PackedStringArray("footstepPlayer")]
 collision_layer = 4
 script = ExtResource("1_ucva2")
+footsteps = Array[AudioStream]([ExtResource("2_60g6h"), ExtResource("3_hrrj1"), ExtResource("4_c6vv5"), ExtResource("5_nh07x"), ExtResource("6_00pic"), ExtResource("7_0bskb"), ExtResource("8_1dmvh"), ExtResource("9_ratp2"), ExtResource("10_84enu")])
+footstepPlayer = NodePath("footstepPlayer")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=744435861]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -28,6 +41,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
 shape = SubResource("CapsuleShape3D_iof21")
 
 [node name="Head" type="Node3D" parent="." unique_id=566848109]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="SeeCast" type="RayCast3D" parent="Head" unique_id=730985804]
@@ -37,7 +51,10 @@ target_position = Vector3(0, -0.895, 0)
 collision_mask = 3
 
 [node name="Camera3D" type="Camera3D" parent="Head" unique_id=917107864]
+unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.146, 0)
+near = 0.2
+far = 50.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2001727379]
 
@@ -60,3 +77,6 @@ alignment = 1
 [node name="Label" type="Label" parent="CanvasLayer/BoxContainer" unique_id=82267008]
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="footstepPlayer" type="AudioStreamPlayer3D" parent="." unique_id=1057045494]
+stream = SubResource("AudioStream_rwm0n")

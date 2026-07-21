@@ -1,23 +1,17 @@
 [gd_scene format=3 uid="uid://b3tlriwewbwh4"]
 
 [ext_resource type="Script" uid="uid://m7cp72xneka" path="res://assets/scripts/SceneDoor.gd" id="1_e8cg5"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_113b1"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8cg5"]
-albedo_color = Color(0.94509804, 0.40392157, 0, 1)
+[ext_resource type="PackedScene" uid="uid://c20ga1xproawk" path="res://assets/models/door/door.glb" id="2_10u84"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_e8cg5"]
-size = Vector3(1, 25, 10)
+size = Vector3(1, 25.775879, 10.590576)
 
 [node name="SceneDoor" type="StaticBody3D" unique_id=147277916 groups=["interactable"]]
 script = ExtResource("1_e8cg5")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=357774367]
-transform = Transform3D(0.039485812, 0, 0, 0, 2.4438844, 0, 0, 0, 1, 0, 1.2482126, 0)
-mesh = SubResource("BoxMesh_113b1")
-surface_material_override/0 = SubResource("StandardMaterial3D_e8cg5")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2077179688]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1.1741368, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.08008695, 1.1353428, 0.046862792)
 shape = SubResource("BoxShape3D_e8cg5")
+
+[node name="Sketchfab_Scene" parent="." unique_id=1467050698 instance=ExtResource("2_10u84")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07863936, 1.0713446, 0.07720518)

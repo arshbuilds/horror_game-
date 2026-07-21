@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://blisapegvbcw4" path="res://assets/models/alarmclock/alarm_clock.glb" id="1_5f6dl"]
 [ext_resource type="Script" uid="uid://d0dkt7kl7gse7" path="res://assets/scripts/alarm.gd" id="1_5kjue"]
+[ext_resource type="AudioStream" uid="uid://ujb0l1kfc64k" path="res://assets/sound/alarm.mp3" id="3_8xjyh"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5f6dl"]
 size = Vector3(0.2, 0.24, 0.11)
@@ -15,3 +16,7 @@ shape = SubResource("BoxShape3D_5f6dl")
 
 [node name="Sketchfab_Scene" parent="." unique_id=287299014 instance=ExtResource("1_5f6dl")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=259154344]
+stream = ExtResource("3_8xjyh")
+autoplay = true

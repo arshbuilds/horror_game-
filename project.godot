@@ -74,4 +74,6 @@ locale/translations_pot_files=PackedStringArray("res://assets/dialogues/test.dia
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+environment/defaults/default_environment="uid://mp0k66g7xovd"

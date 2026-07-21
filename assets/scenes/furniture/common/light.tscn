@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b7gab5s5fwqj1"]
+
+[ext_resource type="PackedScene" uid="uid://bw6ewdvr3y6aj" path="res://assets/models/light/ceiling_lamp.glb" id="1_a1ata"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5cu0r"]
+size = Vector3(0.16640624, 0.072705075, 0.2)
+
+[node name="light" type="StaticBody3D" unique_id=1338002112]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1956757325]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01679688, -0.054418944, 0)
+shape = SubResource("BoxShape3D_5cu0r")
+
+[node name="Sketchfab_Scene" parent="." unique_id=747156178 instance=ExtResource("1_a1ata")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.19704545, 0, -0.19637012)

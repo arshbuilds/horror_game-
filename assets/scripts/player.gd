@@ -1,5 +1,12 @@
 extends CharacterBody3D
 
+
+##Footsteps files export 
+@export var footsteps: Array[AudioStream]
+## Footstep stream player
+@export var footstepPlayer: AudioStreamPlayer3D
+
+
 ## Can we move around?
 @export var can_move : bool = true
 ## Are we affected by gravity?
@@ -8,6 +15,10 @@ extends CharacterBody3D
 @export var can_jump : bool = true
 ## Can we hold to run?
 @export var can_sprint : bool = false
+## Can we play footstep audio files
+var can_play_footstep = true
+
+var footstep_landed 
 
 @export_group("Speeds")
 ## Look around rotation speed.
@@ -34,6 +45,11 @@ extends CharacterBody3D
 @export var input_sprint : String = "sprint"
 ## Name of Input Action to toggle freefly mode.
 
+@export_group("Headbob")
+@export var headbob_frequency = 2.0
+@export var headbob_amplitude = 0.04
+var headbob_time := 0.0
+
 var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
@@ -41,6 +57,8 @@ var move_speed : float = 0.0
 ## IMPORTANT REFERENCES
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
+
+
 
 func _ready() -> void:
 	check_input_mappings()
@@ -107,6 +125,31 @@ func _physics_process(delta: float) -> void:
 	
 	# Use velocity to actually move
 	move_and_slide()
+	
+	if not footstep_landed and is_on_floor():
+		playFootsteps()
+	elif footstepPlayer and not is_on_floor():
+		playFootsteps()
+	footstep_landed = is_on_floor()
+		
+	headbob_time += delta * velocity.length() * float(is_on_floor())
+	%Camera3D.transform.origin = headbob(headbob_time)
+	
+
+func headbob(headbob_time):
+	var headbob_position = Vector3.ZERO
+	headbob_position.y = sin(headbob_time * headbob_frequency) * headbob_amplitude
+	headbob_position.x = cos(headbob_time * headbob_frequency / 2) * headbob_amplitude
+	
+	var footstep_threshold = -headbob_amplitude + 0.002
+	if headbob_position.y > footstep_threshold:
+		can_play_footstep = true 
+	elif headbob_position.y < footstep_threshold and can_play_footstep:
+		can_play_footstep = false 
+		playFootsteps()
+	
+	return headbob_position
+	
 
 
 ## Rotate us to look around.
@@ -154,3 +197,19 @@ func check_input_mappings():
 	if can_sprint and not InputMap.has_action(input_sprint):
 		push_error("Sprinting disabled. No InputAction found for input_sprint: " + input_sprint)
 		can_sprint = false
+
+
+func playFootsteps():
+	footstepPlayer.stream = footsteps.pick_random()
+	footstepPlayer.pitch_scale = randf_range(0.97, 1.03)
+	footstepPlayer.play()
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
